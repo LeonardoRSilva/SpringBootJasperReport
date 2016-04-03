@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="fragments/layoutPadrao"
+	xmlns:th="http://www.thymeleaf.org">
+
+<section layout:fragment="conteudo">
+
+
+	<section data-ng-view="" id="content" class="animate-fade-up ng-scope">
+		<div class="page page-profile ng-scope">
+
+			<div class="row">
+				<div class="col-md-12">
+
+					<div class="panel panel-profile">
+						<div class="panel-heading text-center  bg-success">
+							<img alt="" src="images/g1.jpg" class="img-circle img80_80" />
+							<h3 class="ng-binding">Pesquisas</h3>
+							<p>Pesquisa de Produto</p>
+						</div>
+
+						<section class="panel panel-default">
+
+							<div class="panel-body">
+
+
+
+								<form class="form-horizontal" method="POST"
+									th:object="${filtro}" th:action="@{/produtofiltro}" >
+									<div class="form-group">
+										<label for="inputNome" class="col-sm-2 control-label">Nome Produto:</label>
+										<div class="col-sm-7">
+											<input type="text" class="form-control" name="parametro2"
+												id="inputParametro1" placeholder="Nome Produto" size="30"
+												maxlength="30" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="inputCidade" class="col-sm-2 control-label">sku:</label>
+										<div class="col-sm-7">
+											<input type="text" class="form-control" name="parametro1"
+												id="inputParametro2" placeholder="Cidade" size="30"
+												maxlength="30" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-sm-offset-1 col-sm-2">
+											<button type="submit" class="btn btn-primary">Pesquisar</button>
+										</div>
+									</div>
+									<div class="tabela-resultado">
+										<table class="table table-bordered table-hover table-striped">
+											<thead>
+												<tr>
+													
+													<th class="text-center col-md-2">SKU</th>
+													<th class="text-center col-md-2">Nome</th>
+													<th class="text-center col-md-2">Fabricante</th>
+													<th class="text-center col-md-2">Custo Médio</th>
+													<th class="text-center col-md-2">Ações</th>
+													
+
+												</tr>
+											</thead>
+											<tbody>
+												<tr th:each="produto : ${produtos}" data-toggle="popover"
+													data-trigger="hover" data-placement="top">
+													
+													<td class="text-center" th:text="${produto.sku}"></td>
+													<td class="text-center" th:text="${produto.nome}"></td>
+													<td class="text-center" th:text="${produto.fabricante}"></td>
+													<td class="text-center" th:text="${produto.custoMedio}"></td>
+													
+													<td class="text-center"><a
+														th:href="@{/produto/delete/{id}(id=${produto.id})}"
+														class="btn btn-danger" style="margin-right: 5px;"> <span
+															class="glyphicon glyphicon-trash">Excluir</span></a> 
+														<!--	<a th:href="@{/produto/edit/{id}(id=${produto.id})}"
+														class="btn btn-warning "> <span
+															class="glyphicon glyphicon-open-file">Editar</span></a>
+															 <a
+														th:href="@{/produto/relatorio/{id}(id=${produto.id})}"
+														class="btn btn-danger" style="margin-right: 5px;"> <span
+															class="glyphicon glyphicon-trash">Gera Relatório</span></a>
+													--></td>
+
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</form>
+							</div>
+						</section>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+
+</section>
+
+</html>

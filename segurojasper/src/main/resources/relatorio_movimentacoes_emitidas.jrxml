@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.1.final using JasperReports Library version 6.2.1  -->
+<!-- 2016-03-30T14:21:19 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorio_movimentacoes_emitidas" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="67095db4-a167-452d-9380-d65da99ad061">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="minha_conexao"/>
+	<parameter name="movimentacao_id_itens" class="java.lang.Long"/>
+	<queryString>
+		<![CDATA[SELECT seguroestoque.tb_itens_movimentacao.quantidade,
+	seguroestoque.tb_itens_movimentacao.valor_unitario,
+	seguroestoque.tb_itens_movimentacao.movimentacao_id,
+	seguroestoque.tb_itens_movimentacao.produto_id,
+	seguroestoque.tb_itens_movimentacao.total_produto,
+	seguroestoque.tb_produto.fabricante,
+	seguroestoque.tb_produto.nome,
+	seguroestoque.tb_produto.sku,
+	seguroestoque.tb_movimentacao.data_movimentacao,
+	seguroestoque.tb_movimentacao.movimentacao_tipo,
+	seguroestoque.tb_movimentacao.valor_total
+FROM seguroestoque.tb_itens_movimentacao
+	INNER JOIN seguroestoque.tb_movimentacao ON 
+	 seguroestoque.tb_itens_movimentacao.movimentacao_id = seguroestoque.tb_movimentacao.id 
+	INNER JOIN seguroestoque.tb_produto ON 
+	 seguroestoque.tb_itens_movimentacao.produto_id = seguroestoque.tb_produto.id 
+WHERE 
+	 seguroestoque.tb_itens_movimentacao.movimentacao_id = $P{movimentacao_id_itens}]]>
+	</queryString>
+	<field name="sku" class="java.lang.String"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="fabricante" class="java.lang.String"/>
+	<field name="quantidade" class="java.math.BigDecimal"/>
+	<field name="valor_unitario" class="java.math.BigDecimal"/>
+	<field name="total_produto" class="java.math.BigDecimal"/>
+	<field name="movimentacao_id" class="java.lang.Long"/>
+	<field name="produto_id" class="java.lang.Long"/>
+	<field name="data_movimentacao" class="java.sql.Timestamp"/>
+	<field name="movimentacao_tipo" class="java.lang.String"/>
+	<field name="valor_total" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="85" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="52" width="100" height="30" uuid="885b2e73-9eb4-43d6-8a0a-a9377c1c320f"/>
+				<text><![CDATA[Id Movimentação:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="100" y="50" width="100" height="30" uuid="0b2dd02c-761d-4385-935b-02242c2d649c"/>
+				<textFieldExpression><![CDATA[$F{movimentacao_id}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="200" y="50" width="100" height="30" uuid="cd96cc2b-bd74-4fc0-9d9e-feb3e1894941"/>
+				<text><![CDATA[Data Movimentação:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="300" y="50" width="100" height="30" uuid="7ea25e70-c883-464a-bc55-a190599519b7"/>
+				<textFieldExpression><![CDATA[$F{data_movimentacao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="350" y="-2" width="100" height="30" uuid="c5b7685c-4a6f-4fcf-83ad-fa095e80bd6d"/>
+				<text><![CDATA[Tipo Movimentação:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="455" y="-2" width="100" height="30" uuid="02a894c3-86b7-421d-b7d3-1fa1c9123d04"/>
+				<textFieldExpression><![CDATA[$F{movimentacao_tipo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="400" y="52" width="100" height="30" uuid="aa0ad3ec-2f78-41a1-bd50-69159a199d59"/>
+				<text><![CDATA[Valor Total:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="480" y="52" width="100" height="30" uuid="8be094a0-623f-497a-9081-d856734534d5"/>
+				<textFieldExpression><![CDATA[$F{valor_total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="33" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="95" height="30" uuid="5f242023-d63c-4ca7-9f00-9709c333c87b"/>
+				<text><![CDATA[SKU:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="95" y="0" width="92" height="30" uuid="8f73ee42-120b-4d22-9106-a16ba1ad76c5"/>
+				<text><![CDATA[Nome:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="187" y="0" width="92" height="30" uuid="643e7e92-d841-4ac8-b936-16ded5e35a43"/>
+				<text><![CDATA[Fabricante:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="279" y="0" width="92" height="30" uuid="494d30fa-82f2-4dbd-a034-16e132118576"/>
+				<text><![CDATA[Quantidade:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="371" y="0" width="92" height="30" uuid="d66ab349-5690-4ed7-a008-7e4bfac24019"/>
+				<text><![CDATA[Valor Unitário:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="463" y="0" width="92" height="30" uuid="ec88ec4d-ebcb-4bc7-a63b-430ccf13b7b8"/>
+				<text><![CDATA[Total Produto:]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="85" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="37" width="95" height="30" uuid="d6ede70e-8e90-4611-8dc6-61bce91c8e90"/>
+				<textFieldExpression><![CDATA[$F{sku}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="95" y="37" width="92" height="30" uuid="ebcaa598-9385-4a83-a219-2db2f7194c3a"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="187" y="37" width="92" height="30" uuid="4dee9a13-d39a-43f1-8505-77fd7f63b436"/>
+				<textFieldExpression><![CDATA[$F{fabricante}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="279" y="37" width="92" height="30" uuid="b1a8d972-e9c4-4aa9-ba52-b81074c2f46a"/>
+				<textFieldExpression><![CDATA[$F{quantidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="371" y="37" width="92" height="30" uuid="5e2fdf73-5a7d-4e75-9c47-bda0a7f2af3b"/>
+				<textFieldExpression><![CDATA[$F{valor_unitario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="463" y="37" width="92" height="30" uuid="5e9e1986-e25f-4ced-8f3e-47b9bfffabc8"/>
+				<textFieldExpression><![CDATA[$F{total_produto}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="77" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

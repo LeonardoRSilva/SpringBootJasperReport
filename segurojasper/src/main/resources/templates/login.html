@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="fragments/layoutPadrao"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<body>
+<section layout:fragment="conteudo">
+	<div class="page-signin">
+
+		<div class="signin-header">
+			<div class="container text-center">
+				<section class="logo">
+
+					<img alt="" src="imagens/logonormal.png"
+						style="widht: 250px; height: 120px; margin: 0px" />
+				</section>
+			</div>
+		</div>
+
+
+
+
+
+		<div class="signin-body">
+			<div class="container">
+				<div class="form-container">
+
+
+					<form class="form-horizontal" th:action="@{/login}" method="post">
+						<fieldset>
+
+							<div class="form-group">
+								<div class="input-group input-group-lg">
+									<span class="input-group-addon"> <span
+										class="glyphicon glyphicon-envelope"></span>
+									</span> <input class="form-control" placeholder="Nome" type="text"
+										name="username" id="username" />
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="input-group input-group-lg">
+									<span class="input-group-addon"> <span
+										class="glyphicon glyphicon-lock"></span>
+									</span> <input class="form-control" placeholder="password"
+										type="password" name="password" id="password" />
+								</div>
+							</div>
+
+							<div class="form-group">
+								<input type="submit" class="btn btn-primary btn-lg btn-block"
+									value="login" />
+							</div>
+						</fieldset>
+					</form>
+
+					<section>
+						<p class="text-center" th:if="${param.error}">
+							<a href="#"> Nome ou senha inválidos.</a>
+						</p>
+
+					</section>
+
+					<div class="col-md-12">
+
+
+
+
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<strong><span class="glyphicon glyphicon-th"></span>
+									Tabela de Usuários</strong>
+							</div>
+							<table class="table">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>Nome</th>
+										<th>Senha</th>
+										<th>Role</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>leo</td>
+										<td>pass</td>
+										<td>ROLE_USER</td>
+									</tr>
+									
+								</tbody>
+							</table>
+						</div>
+
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+</section>
+
+</body>
+</html>

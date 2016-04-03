@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<!--
+<div th:if="${statusError eq 'unsuccess'}">
+	<div class="alert alert-danger alert-dismissible" role="alert">
+
+		<span th:each="mensagem:${message}"> <strong>Erro!- </strong><span
+			th:text="${mensagem}"> </span>.<br />
+		</span>
+
+	</div>
+</div>
+ -->
+
+
+<div th:if="${statusError eq 'unsuccess'}">
+	<div class="alert ng-isolate-scope alert-danger"">
+
+		<span class="ng-scope ng-binding" th:each="mensagem:${message}">
+			<strong>Erro!- </strong><span th:text="${mensagem}"> </span>.
+		</span><br />
+	</div>
+</div>
+
+
+<div th:if="${statusError eq 'success'}">
+	<div class="alert ng-isolate-scope alert-success">
+
+		<span class="ng-scope ng-binding"><strong>Successo!</strong> <span
+			th:text="${message}"></span></span>
+	</div>
+</div>
+
+
+<!--
+<div th:if="${statusError eq 'success'}">
+	<div class="alert alert-success alert-dismissible" role="alert">
+		<strong>Successo!</strong> <span th:text="${message}"></span>
+	</div>
+	
+</div>
+  -->
+</html>

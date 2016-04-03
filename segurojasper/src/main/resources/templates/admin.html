@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="fragments/layoutPadrao"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<section layout:fragment="conteudo">
+	<style>
+.container {
+	background: #fff;
+}
+
+#alert {
+	display: none;
+}
+</style>
+
+
+	<section id="content" class="animate-fade-up ng-scope">
+
+
+
+
+
+
+
+		<div class="page page-profile ng-scope">
+
+			<div class="row">
+				<div class="col-md-12">
+
+					<div class="panel panel-profile">
+						<div class="panel-heading text-center  bg-success">
+							<img alt="" src="images/g1.jpg" class="img-circle img80_80" />
+							<h3 class="ng-binding">Inicio</h3>
+							<h1 th:inline="text">Bem vindo [[${#httpServletRequest.remoteUser}]]!</h1>
+						</div>
+
+						<section class="panel panel-default">
+
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<strong><span class="glyphicon glyphicon-th"></span>
+										Informação usuário</strong>
+								</div>
+								<div class="panel-body">
+									<div class="media">
+										<div class="media-body">
+											<ul class="list-unstyled list-info">
+												<li class="ng-binding"><span
+													class="icon glyphicon glyphicon-user"></span> <label>Nome:</label> <span th:inline="text"> [[${#httpServletRequest.remoteUser}]]!</span></li>
+												
+											</ul>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+
+
+
+
+
+					</div>
+
+
+
+				</div>
+			</div>
+		</div>
+
+
+
+	</section>
+
+
+
+</section>
+
+
+
+
+</html>

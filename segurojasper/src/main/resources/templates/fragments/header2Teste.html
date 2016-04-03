@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Aprendendo Servlet</title>
+<link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="bootstrap-3.3.5-dist/css/bootstrap-theme.min.css" />
+	<style type="text/css">
+.display_block {
+	display: block;
+	-webkit-transition: 0.6s ease-in;
+	-moz-transition: 0.6s ease-in;
+	-o-transition: 0.6s ease-in;
+	transition: 0.6s ease-in;
+}
+</style>
+</head>
+<body>
+
+	<!-- Navbar -->
+	<div class="navbar navbar-inverse navbar-fixed-top navbar-flat"
+		th:fragment="header">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".nav-collapse">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand green" href="#">Projeto Spring</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="#" th:href="@{/}">Home</a></li>
+					<li id="menu_drop" class="dropdown" onclick="menu_dropdown_abrir('menu_drop');"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false">Cadastros<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#" th:href="@{/aluno}">Aluno</a></li>
+							<li><a href="#" th:href="@{/disciplina}">Disciplina</a></li>
+							<li><a href="#" th:href="@{/matricula}">Matricula</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#" th:href="@{/avaliacao}">Avaliaçao</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#" th:href="@{/pontos}">Pontos</a></li>
+						</ul></li>
+						<li id="menu_drop1" class="dropdown" onclick="menu_dropdown_abrir('menu_drop1');"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false">Pesquisas<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#" th:href="@{/pesqaluno}">Pesquisa Aluno</a></li>
+							<li><a href="#" th:href="@{/pesqdisciplina}">Pesquisa Disciplinas</a></li>
+							<li><a href="#" th:href="@{/pesqmatricula}">Pesquisa Matriculas</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#" th:href="@{/pesqavaliacao}">Pesquisa Avaliações</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="#" th:href="@{/pesqponto}">Pesquisa Pontos</a></li>
+						</ul></li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
+
+		</div>
+	</div>
+
+</body>
+</html>

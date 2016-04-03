@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="fragments/layoutPadrao"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<body>
+	<section layout:fragment="conteudo">
+		<div class="page-signin">
+
+			<div class="signin-header">
+				<div class="container text-center">
+					<section class="logo">
+
+						<img alt="" src="imagens/logonormal.png"
+							style="widht: 250px; height: 120px; margin: 0px" />
+					</section>
+				</div>
+			</div>
+
+			<div class="container text-center">
+				<h1>Bem vindo!</h1>
+
+				<p>
+					Click <a th:href="@{/admin}">aqui</a> para ir para pagina admin.
+				</p>
+			</div>
+
+
+
+
+		</div>
+
+
+	</section>
+
+</body>
+</html>

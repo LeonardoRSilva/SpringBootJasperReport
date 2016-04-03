@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="fragments/layoutPadrao"
+	xmlns:th="http://www.thymeleaf.org">
+
+<section layout:fragment="conteudo">
+
+
+	<section data-ng-view="" id="content" class="animate-fade-up ng-scope">
+		<div class="page page-profile ng-scope">
+
+			<div class="row">
+				<div class="col-md-12">
+
+					<div class="panel panel-profile">
+						<div class="panel-heading text-center  bg-success">
+							<img alt="" src="images/g1.jpg" class="img-circle img80_80" />
+							<h3 class="ng-binding">Pesquisas</h3>
+							<p>Pesquisa de Movimentacao</p>
+						</div>
+
+						<section class="panel panel-default">
+
+							<div class="panel-body">
+
+
+
+								<form class="form-horizontal" method="POST"
+									th:object="${filtro}" th:action="@{/movimentacaofiltro}">
+									<div class="form-group">
+										<label for="inputNome" class="col-sm-2 control-label">Data
+											Movimentacao:</label>
+										<div class="col-sm-4">
+											<input type="text" class="form-control col-sm-3"
+												name="parametro1" id='datetimepicker1'
+												placeholder="Data inicio" size="30" maxlength="30" />
+										</div>
+										<div class="col-sm-1" style="font-weight: bold">a</div>
+										<div class="col-sm-4">
+											<input type="text" class="form-control" name="parametro3"
+												id='datetimepicker2' placeholder="Data fim" size="30"
+												maxlength="30" />
+										</div>
+
+									</div>
+									<div class="form-group required">
+										<label for="inputParametro2" class="col-sm-2 control-label">Tipo
+											:</label> <span class="ui-select"> <select
+											name="parametro2" class="ng-pristine ng-valid">
+												<option value="">Selecione</option>
+												<option th:each="movimentacaoTipo:${tipoMovimentacaoList}"
+													th:value="${movimentacaoTipo}"
+													th:text="${movimentacaoTipo.descricao}"></option>
+										</select>
+										</span>
+									</div>
+
+
+
+									
+
+									<script src="js/jquery-2.1.1.min.js"></script>
+									<script src="js/bootstrap.min.js"></script>
+									<script src="js/moment-with-locales.js"></script>
+									<script src="js/bootstrap-datetimepicker.js"></script>
+
+
+									<script type="text/javascript">
+							            $(function () {
+							               $('#datetimepicker1').datetimepicker({
+							   				locale : 'pt-br',
+											format : 'DD/MM/YYYY'
+										});
+							               $('#datetimepicker2').datetimepicker({
+								   				locale : 'pt-br',
+								   				format : 'DD/MM/YYYY'
+											});
+							
+							            });
+							        </script>
+
+
+									<div class="form-group">
+										<div class="col-sm-offset-1 col-sm-2">
+											<button type="submit" class="btn btn-primary">Pesquisar</button>
+										</div>
+									</div>
+									<div class="tabela-resultado">
+										<table class="table table-bordered table-hover table-striped">
+											<thead>
+												<tr>
+
+													<th class="text-center col-md-2">Id</th>
+													<th class="text-center col-md-2">Data Movimentacao</th>
+													<th class="text-center col-md-2">Tipo</th>
+													<th class="text-center col-md-2">Valor Total</th>
+													<th class="text-center col-md-2">Ações</th>
+
+
+												</tr>
+											</thead>
+											<tbody>
+												<tr th:each="movimentacao : ${movimentacoes}"
+													data-toggle="popover" data-trigger="hover"
+													data-placement="top">
+
+													<td class="text-center" th:text="${movimentacao.id}"></td>
+													<td class="text-center"
+														th:text="${movimentacao.dataMovimentacao}"></td>
+													<td class="text-center"
+														th:text="${movimentacao.movimentacaoTipo}"></td>
+													<td class="text-center"
+														th:text="${movimentacao.valorTotal}"></td>
+													<td class="text-center"><a
+														th:href="@{/movimentacao/delete/{id}(id=${movimentacao.id})}"
+														class="btn btn-danger" style="margin-right: 5px;"> <span
+															class="glyphicon glyphicon-trash">Excluir</span></a> <a
+														th:href="@{/movimentacao/relatorio/{id}(id=${movimentacao.id})}"
+														class="btn btn-success" style="margin-right: 5px;">
+															Gerar Relatório</a></td>
+
+
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</form>
+							</div>
+						</section>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+
+</section>
+
+</html>

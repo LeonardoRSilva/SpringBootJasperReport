@@ -1,0 +1,152 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Clinica</title>
+<!-- 
+<link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="bootstrap-3.3.5-dist/css/bootstrap-theme.min.css" />
+	 -->
+
+<link rel="stylesheet" type="text/css" href="css/font-icons.css" />
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<style type="text/css">
+.display_block {
+	display: block;
+	-webkit-transition: 0.6s ease-in;
+	-moz-transition: 0.6s ease-in;
+	-o-transition: 0.6s ease-in;
+	transition: 0.6s ease-in;
+}
+</style>
+
+
+</head>
+<body>
+
+
+
+	<section id="header" class="top-header" th:fragment="header">
+
+		<header class="clearfix">
+
+			<!-- Logo -->
+			<div class="logo">
+
+				<a href="#" th:href="@{/}"> <img alt=""
+					src="imagens/logonormal.png"
+					style="widht: 100px; height: 48px; margin: 0px" />
+				</a>
+			</div>
+
+			<!-- needs to be put after logo to make it working-->
+			<div class="menu-button">
+				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</div>
+
+			<div class="top-nav">
+				<ul class="nav-left list-unstyled">
+					<!--	<li><a href="#/" class="toggle-min"><i class="fa fa-bars"></i></a></li>
+					             <li class="dropdown">
+                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-columns"></i></a>
+                <ul class="dropdown-menu dropdown-dark with-arrow">
+                    <li> <a href="javascript:;"><span data-i18n="Boxed Layout"></span></a> </li>
+                    <li> <a href="javascript:;"><span data-i18n="Full Width Layout"></span></a> </li>
+                    <li> <a href="javascript:;"><span data-i18n="Collapsed Menu"></span></a> </li>
+                    <li> <a href="javascript:;"><span data-i18n="Horizontal Menu"></span></a> </li>
+                    <li> <a href="javascript:;"><span data-i18n="Vertical Menu"></span></a> </li>
+                </ul>
+            </li> -->
+
+					<li class="dropdown langs text-normal"
+						data-ng-controller="LangCtrl"><a href="javascript:;"
+						class="dropdown-toggle active-flag" data-toggle="dropdown">
+							Cadastros </a>
+						<ul
+							class="dropdown-menu dropdown-dark with-arrow list-langs cadastros"
+							role="menu">
+							<li><a href="#" th:href="@{/admin}">inicio</a></li>
+							<li><a href="#" th:href="@{/produto}">Produto</a></li>
+							<li><a href="#" th:href="@{/movimentacao}">Movimentacao</a></li>
+							
+
+						</ul></li>
+						
+						<li class="dropdown langs text-normal"
+						data-ng-controller="LangCtrl"><a href="javascript:;"
+						class="dropdown-toggle active-flag" data-toggle="dropdown">
+							Pesquisas </a>
+						<ul
+							class="dropdown-menu dropdown-dark with-arrow list-langs cadastros"
+							role="menu">
+							<li><a href="#" th:href="@{/pesqproduto}">Pesquisa
+									Produto</a></li>
+							<li><a href="#" th:href="@{/pesqmovimentacao}">Pesquisa
+									Movimentação</a></li>
+							
+
+
+
+
+						</ul></li>
+						<li class="dropdown langs text-normal"
+						data-ng-controller="LangCtrl"><a href="javascript:;"
+						class="dropdown-toggle active-flag" data-toggle="dropdown">
+							Relatórios </a>
+						<ul
+							class="dropdown-menu dropdown-dark with-arrow list-langs cadastros"
+							role="menu">
+							<li><a href="#" th:href="@{/produto/relatorio}">Relatório
+									Produto</a></li>
+							<li><a href="#" th:href="@{/movimentacoes/relatorio}">Relatório
+									Movimentações</a></li>		
+							
+							
+
+
+
+
+						</ul></li>
+					
+					<!--             <li class="dropdown">
+                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="fa fa-magic nav-icon"></span>
+                </a>
+                <ul class="dropdown-menu pull-right color-switch" data-ui-color-switch>
+                    <li><a href="javascript:;" class="color-option color-some_color" data-style="some_color"></a></li>
+                </ul>
+            </li> -->
+
+				</ul>
+
+				<ul class="nav-right pull-right list-unstyled">
+					
+
+					<li class="dropdown langs text-normal nav-profile"><a
+						href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+							<img src="imagens/user.png" alt="" class="img-circle img30_30" />
+					</a>
+						<ul
+							class="  dropdown-menu dropdown-dark pull-right with-arrow cadastros">
+							
+							<li><form th:action="@{/logout}" method="post">
+	<input type="submit" value="logout"/>
+	</form></li>
+						</ul></li>
+
+				</ul>
+			</div>
+
+		</header>
+
+	</section>
+
+
+
+
+</body>
+</html>

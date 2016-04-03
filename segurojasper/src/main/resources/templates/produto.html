@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="fragments/layoutPadrao"
+	xmlns:th="http://www.thymeleaf.org">
+
+<section layout:fragment="conteudo">
+	<style>
+.container {
+	background: #fff;
+}
+
+#alert {
+	display: none;
+}
+</style>
+
+	<section data-ng-view="" id="content" class="animate-fade-up ng-scope">
+		<div class="page page-profile ng-scope">
+
+			<div class="row">
+				<div class="col-md-12">
+
+					<div class="panel panel-profile">
+						<div class="panel-heading text-center  bg-success">
+							<img alt="" src="images/g1.jpg" class="img-circle img80_80" />
+							<h3 class="ng-binding">Cadastros</h3>
+							<p>Cadastro de Produto</p>
+						</div>
+
+						<section class="panel panel-default">
+							<!-- mensagens -->
+							<div layout:include="fragments/messages"></div>
+
+
+							<div class="panel-heading">
+								<strong><span class="glyphicon glyphicon-th"></span> </strong>
+							</div>
+
+
+							<div class="panel-body">
+								<form class="form-horizontal ng-pristine ng-valid"
+									th:object="${produto}" method="post"
+									th:action="@{/produto/save}">
+
+
+									<div class="form-group required">
+										<label for="inputNome" class="col-sm-2">Nome:</label>
+										<div class="col-sm-7">
+											<input th:classappend="${NOME eq 'error'} ? input-danger"
+												class="form-control" id="inputNome" type="text" name="nome"
+												th:value="${produto.nome}" required="required" size="30" maxlength="80" />
+										</div>
+									</div>
+
+									<div class="form-group required">
+										<label for="inputSKU" class="col-sm-2">SKU:</label>
+										<div class="col-sm-7">
+											<input th:classappend="${SKU eq 'error'} ? input-danger"
+												class="form-control" id="inputSKU" type="text" name="sku"
+												th:value="${numSKU}" required="required" size="20"
+												maxlength="20" style="text-transform: uppercase" />
+										</div>
+									</div>
+									<div class="form-group required">
+										<label for="inputValorUnitário" class="col-sm-2">Custo 
+											Médio:</label>
+										<div class="col-sm-7">
+											<input
+												th:classappend="${CUSTOMEDIO eq 'error'} ? input-danger"
+												class="form-control" id="currency" data-affixes-stay="true" data-prefix="" data-thousands="." type="text"
+												th:value="${produto.custoMedio}" name="custoMedio" required="required" size="30"
+												maxlength="80" />
+										</div>
+									</div>
+
+									<div class="form-group required">
+										<label for="inputFabricante" class="col-sm-2">Fabricante:</label>
+										<div class="col-sm-7">
+											<input
+												th:classappend="${FABRICANTE eq 'error'} ? input-danger"
+												class="form-control" id="inputFabricante" type="text"
+												name="fabricante" required="required" size="30"
+												th:value="${produto.fabricante}"
+												maxlength="80" />
+										</div>
+									</div>
+
+
+									<button th:type="submit" class="btn btn-success">Enviar</button>
+								</form>
+							</div>
+						</section>
+
+
+
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+		<script src="js/jquery-2.1.1.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/moment-with-locales.js"></script>
+		<script src="js/jquery.maskMoney.min.js"></script>
+
+
+		<script type="text/javascript">
+			$(function() {
+				$('#currency').maskMoney();
+				
+				
+
+				$.mask.definitions['~'] = '[+-]';
+				$('.input-mask-date').mask('99/99/9999');
+				$('.input-mask-phone').mask('(999) 9999-9999');
+				$('.input-mask-eyescript').mask('~9.99 ~9.99 999');
+				$('.input-mask-valor').mask('99999.99');
+				$('.input-mask-rg').mask('99.999.999-9');
+				$('.input-mask-cpf').mask('999.999999-99');
+				$('.input-mask-crm').mask('99.99999');
+				$(".input-mask-product").mask("a*-999-a999", {
+					placeholder : " ",
+					completed : function() {
+						alert("You typed the following: " + this.val());
+					}
+				});
+
+			});
+		</script>
+
+
+
+		<script src="js/jquery.maskedinput.min.js"></script>
+		<script>
+
+		
+			if (top.location != location) {
+				top.location.href = document.location.href;
+			}
+
+			jQuery(function($) {
+
+			});
+		</script>
+
+	</section>
+
+
+</section>
+
+</html>

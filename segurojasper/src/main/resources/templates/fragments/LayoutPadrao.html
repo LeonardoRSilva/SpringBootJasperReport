@@ -1,0 +1,63 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Controle de Movimentações</title>
+<!-- 
+<link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="bootstrap-3.3.5-dist/css/bootstrap-theme.min.css" />
+	 -->
+	<link th:if="${pgdate eq 'true'}"  rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
+ 
+      
+        <link th:if="${pgdate eq 'true'}"   href="css/base.css" rel="stylesheet" />
+        <link th:if="${pgdate eq 'true'}"  href="css/bootstrap-datetimepicker.css" rel="stylesheet" />
+    
+	   <link th:if="${pgdate eq 'true'}"  href="css/chosen.min.css" rel="stylesheet" />
+	 <link th:if="${pgdate eq 'true'}" rel="stylesheet" href="css/bootstrap.min.css" />
+
+	 <link  th:if="${pgdate eq 'true'}" rel="stylesheet" type="text/css"  href="css/datepicker.css"  />	 
+<link rel="stylesheet" type="text/css" href="css/font-icons.css" />
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<link rel="stylesheet" type="text/css" href="css/colors.css" />
+<style type="text/css">
+.display_block {
+	display: block;
+	-webkit-transition: 0.6s ease-in;
+	-moz-transition: 0.6s ease-in;
+	-o-transition: 0.6s ease-in;
+	transition: 0.6s ease-in;
+}
+
+</style>
+
+
+</head>
+
+<body>
+
+
+
+	<div th:replace="fragments/header :: header"></div>
+	<!-- <div th:replace="fragments/aside :: aside"></div> -->
+
+	
+
+	<section id="content" class="animate-fade-up ng-scope">
+		<div class="page-dashboard ng-scope">
+			<section layout:fragment="conteudo">
+				<p>Conteudo</p>
+			</section>
+		</div>
+	</section>
+
+
+
+
+	</body>
+</html>

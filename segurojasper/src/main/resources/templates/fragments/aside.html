@@ -1,0 +1,62 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Clinica</title>
+<!-- 
+<link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="bootstrap-3.3.5-dist/css/bootstrap-theme.min.css" />
+	 -->
+<link rel="stylesheet" type="text/css" href="css/font-icons.css" />
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<style type="text/css">
+.display_block {
+	display: block;
+	-webkit-transition: 0.6s ease-in;
+	-moz-transition: 0.6s ease-in;
+	-o-transition: 0.6s ease-in;
+	transition: 0.6s ease-in;
+}
+</style>
+
+
+</head>
+<body>
+
+
+
+	<aside id="nav-container" th:fragment="aside">
+
+		<div class="ng-scope" id="nav-wrapper">
+			<div
+				style="position: relative; overflow: hidden; width: auto; height: 100%;"
+				class="slimScrollDiv">
+				<ul style="overflow: hidden; width: auto; height: 100%;"
+					class="ng-scope" id="nav" data-ng-controller="NavCtrl"
+					data-slim-scroll="" data-collapse-nav="" data-highlight-active="">
+					<li class="active"><a href="#/dashboard"> <i
+							class="fa fa-dashboard"></i><span data-i18n="Dashboard">Dashboard</span>
+					</a></li>
+					<li class=""><a href="#" th:href="@{/relatorio}"><i class="fa fa-magic"></i><span
+							data-i18n="UI Kit">Relatorio de Movimentações</span></a> <i
+						class="fa fa-caret-right icon-has-ul"></i></li>
+						<li class=""><a href="#" th:href="@{/itensmovimentacao/relatorio}"><i class="fa fa-magic"></i><span
+							data-i18n="UI Kit">Relatorio de Movimentações</span></a> <i
+						class="fa fa-caret-right icon-has-ul"></i></li>
+					
+				</ul>
+				<div
+					style="background: rgb(0, 0, 0) none repeat scroll 0% 0%; width: 7px; position: absolute; border-radius: 7px; z-index: 99; right: 1px; top: 0px; height: 266.98px; display: none; opacity: 0.4;"
+					class="slimScrollBar"></div>
+				<div
+					style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51) none repeat scroll 0% 0%; opacity: 0.2; z-index: 90; right: 1px;"
+					class="slimScrollRail"></div>
+			</div>
+		</div>
+
+	</aside>
+</body>
+</html>
